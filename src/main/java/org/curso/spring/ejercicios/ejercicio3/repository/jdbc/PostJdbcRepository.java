@@ -4,9 +4,8 @@ import java.util.List;
 
 import org.curso.spring.ejercicios.ejercicio3.entities.Post;
 import org.curso.spring.ejercicios.ejercicio3.repository.PostRepository;
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
-public class PostJdbcRepository extends JdbcDaoSupport implements PostRepository {
+public class PostJdbcRepository implements PostRepository {
 
 	@Override
 	public Post add(Post entity) {
