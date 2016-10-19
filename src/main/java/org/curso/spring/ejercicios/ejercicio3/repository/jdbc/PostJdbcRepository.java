@@ -8,22 +8,26 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 public class PostJdbcRepository extends JdbcDaoSupport implements PostRepository {
 
-	public Post create(Post entity) {
+	@Override
+	public Post add(Post entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<Post> findAll() {
+	@Override
+	public List<Post> list() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public void update(Post entity) {
+	@Override
+	public void set(int id, Post entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void delete(Post entity) {
+	@Override
+	public void remove(Post entity) {
 		// TODO Auto-generated method stub
 		
 	}

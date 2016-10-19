@@ -24,7 +24,7 @@ public class ListUsersService implements RetrieverService<List<User>> {
 
 	public List<User> execute() {
 		// TODO Auto-generated method stub
-		return this.getUserRepository().findAll();
+		return this.getUserRepository().list();
 	}
 
 	

@@ -1,5 +1,6 @@
 package org.curso.spring.ejercicios.ejercicio3.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,10 +27,19 @@ public class Post {
 	private List<Comment> comments;
 	
 	public Post() {
+		this.hashtags = new ArrayList<String>();
+		this.comments = new ArrayList<Comment>();
 		this.createdDate = new Date();
 		this.updatedDate = this.createdDate;
 	}
 
+	public Post(List<String> hashtags, List<Comment> comments) {
+		this.hashtags = hashtags;
+		this.comments = comments;
+		this.createdDate = new Date();
+		this.updatedDate = this.createdDate;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -102,7 +112,7 @@ public class Post {
 		this.hashtags = hashtags;
 	}
 
-	public List<Comment> getComments() {
+	protected List<Comment> getComments() {
 		return comments;
 	}
 	
@@ -110,6 +120,26 @@ public class Post {
 		this.comments = comments;
 	}
 
+	public void addComment(Comment comment){
+		if (comment != null){
+			this.comments.add(comment);
+		}
+	}
+	
+	public Comment getComment(int id){
+		Comment comment = null;
+		
+		for (int i = 0; i < this.comments.size(); i++) {
+			comment = this.comments.get(i);
+			
+			if (comment.getId() == id){
+				i = this.comments.size();
+			}
+		}
+		
+		return comment;
+	}
+	
 	@Override
 	public String toString() {
 		return "Post [id=" + id + ", title=" + title + ", content=" + content

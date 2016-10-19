@@ -8,26 +8,28 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 public class CommentJdbcRepository extends JdbcDaoSupport implements CommentRepository {
 
-	public Comment create(Comment entity) {
+	@Override
+	public Comment add(Comment entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<Comment> findAll() {
+	@Override
+	public List<Comment> list() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public void update(Comment entity) {
+	@Override
+	public void set(int id, Comment entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void delete(Comment entity) {
+	@Override
+	public void remove(Comment entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	
-	
 }

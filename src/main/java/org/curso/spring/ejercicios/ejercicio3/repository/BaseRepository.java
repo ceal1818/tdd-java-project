@@ -4,12 +4,12 @@ import java.util.List;
 
 public interface BaseRepository<T> {
 
-	public T create(T entity);
+	public T add(T entity);
 	
-	public List<T> findAll();
+	public List<T> list();
 	
-	public void update(T entity);
+	public void set(int id, T entity);
 	
-	public void delete(T entity);
+	public void remove(T entity);
 	
 }

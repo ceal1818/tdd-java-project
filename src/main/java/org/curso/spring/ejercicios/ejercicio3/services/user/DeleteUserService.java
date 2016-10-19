@@ -21,7 +21,7 @@ public class DeleteUserService implements ProcessorEntityService<User> {
 	}
 
 	public void execute(User entity) {
-		this.getUserRepository().delete(entity);	
+		this.getUserRepository().remove(entity);	
 	}
 
 }

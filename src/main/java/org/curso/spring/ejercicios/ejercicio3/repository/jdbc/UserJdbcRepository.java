@@ -30,7 +30,7 @@ public class UserJdbcRepository implements UserRepository {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 	
-	public User create(User entity) {
+	public User add(User entity) {
 		String sql = "insert into users (nickname, first_name, last_name, email, age, photo) values (?, ?, ?, ?, ?, ?)";
 		this.getJdbcTemplate().update(sql, new Object[]{
 				entity.getNickname(), entity.getFirstName(), entity.getLastName(), 
@@ -38,19 +38,19 @@ public class UserJdbcRepository implements UserRepository {
 		return entity;
 	}
 
-	public List<User> findAll() {
+	public List<User> list() {
 		String sql = "select * from users";
 		return this.getJdbcTemplate().query(sql, new UserRowMapper());
 	}
 
-	public void update(User entity) {
+	public void set(int id, User entity) {
 		String sql = "update users set nickname = ?, first_name = ?, last_name = ?, email = ?, age = ?, photo = ? where id = ?";
 		this.getJdbcTemplate().update(sql, new Object[]{
 				entity.getNickname(), entity.getFirstName(), entity.getLastName(), 
 				entity.getEmail(), entity.getAge(), entity.getPhoto(), entity.getId()});
 	}
 
-	public void delete(User entity) {
+	public void remove(User entity) {
 		String sql = "delete from users where id = ?";
 		this.getJdbcTemplate().update(sql, new Object[]{entity.getId()});
 	}

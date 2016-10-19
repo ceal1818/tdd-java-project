@@ -22,10 +22,10 @@ public class SaveUserService implements RetrieverByParamService<User, User> {
 
 	public User execute(User entity) {
 		if (entity.getId() > 0){
-			this.getUserRepository().update(entity);
+			this.getUserRepository().set(entity.getId(), entity);
 		}
 		else{
-			this.getUserRepository().create(entity);
+			this.getUserRepository().add(entity);
 		}
 		return entity;
 	}
