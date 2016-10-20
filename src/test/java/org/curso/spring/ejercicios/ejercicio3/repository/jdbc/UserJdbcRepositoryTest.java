@@ -15,6 +15,7 @@ import org.curso.spring.ejercicios.ejercicio3.repository.exceptions.RepositoryJd
 import org.curso.spring.ejercicios.ejercicio3.repository.jdbc.mappers.UserRowMapper;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.dao.QueryTimeoutException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class UserJdbcRepositoryTest {
@@ -81,7 +82,7 @@ public class UserJdbcRepositoryTest {
 	
 	@Test(expected=RepositoryJdbcException.class)	
 	public void testGetUserFailed() throws RepositoryJdbcException{		
-		doThrow(RepositoryJdbcException.class).when(this.jdbcTemplate).queryForObject(
+		doThrow(QueryTimeoutException.class).when(this.jdbcTemplate).queryForObject(
 				anyString(), any(Object[].class), any(UserRowMapper.class));
 		
 		this.userJdbcRepository.get(1);

@@ -24,12 +24,12 @@ public class RetrieveUserById {
 	private GetUserByIdService service;
 	
 	private User result;
-
+	
 	@Given("^I have an instance of retrieving service of user by userId$")
 	public void i_have_an_instance_of_retrieving_service_of_user_by_userId() throws Throwable {
 	    when(this.userJdbcRepository.get(anyInt()))
-	    	.thenReturn(this.user);
-	    
+    		.thenReturn(this.user);
+    
 	    this.service = new GetUserByIdService(this.userJdbcRepository);
 	}
 
@@ -43,5 +43,6 @@ public class RetrieveUserById {
 		User user1 = users.get(0);
 		
 	    Assert.assertTrue(this.result.toString().equals(user1.toString()));
-	}	
+	}
+	
 }

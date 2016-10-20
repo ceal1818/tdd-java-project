@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.curso.spring.ejercicios.ejercicio3.entities.User;
 import org.curso.spring.ejercicios.ejercicio3.repository.UserRepository;
+import org.curso.spring.ejercicios.ejercicio3.repository.exceptions.RepositoryJdbcException;
 import org.curso.spring.ejercicios.ejercicio3.services.RetrieverService;
 
 public class ListUsersService implements RetrieverService<List<User>> {
@@ -24,7 +25,15 @@ public class ListUsersService implements RetrieverService<List<User>> {
 
 	public List<User> execute() {
 		// TODO Auto-generated method stub
-		return this.getUserRepository().list();
+		List<User> result =  null;
+		try {
+			result = this.getUserRepository().list();
+		}
+		catch (RepositoryJdbcException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	
