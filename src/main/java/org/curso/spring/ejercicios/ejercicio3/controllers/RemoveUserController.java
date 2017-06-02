@@ -30,7 +30,6 @@ public class RemoveUserController {
 			}
 		} 
 		catch (ServiceException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return new ModelAndView("redirect:/users");

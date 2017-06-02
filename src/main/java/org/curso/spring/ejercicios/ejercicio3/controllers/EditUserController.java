@@ -25,7 +25,6 @@ public class EditUserController {
 			modelAndView.addObject("user", user);
 			modelAndView.setViewName("editUser");
 		} catch (ServiceException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return modelAndView;
