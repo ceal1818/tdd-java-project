@@ -10,6 +10,7 @@ node {
    echo 'Configurando variables'
    def mvnHome = tool 'M3'
    env.PATH = "${mvnHome}/bin:${env.PATH}"
+   env.JAVA_HOME = tool 'JDK 8'
    echo "var mvnHome='${mvnHome}'"
    echo "var env.PATH='${env.PATH}'"
    
